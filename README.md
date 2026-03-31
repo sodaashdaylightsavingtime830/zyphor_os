@@ -22,7 +22,7 @@ sudo apt update
 
 sudo apt install -y git live-build simple-cdd cdebootstrap curl
 
-git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
+git clone https://github.com/markjasonespelita/zyphor_os.git
 ```
 
 ## Build
