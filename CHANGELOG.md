@@ -1,3 +1,10 @@
+## [0.0.5](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.4...v0.0.5) (2026-03-31)
+
+
+### Bug Fixes
+
+* added live hooks wallpaper file chroot, and modified the xfce4-desktop.xml ([dad518f](https://github.com/markjasonespelita/zyphor_os/commit/dad518f83718393c5b402baaec3bda7d7e39477f))
+
 ## [0.0.4](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.3...v0.0.4) (2026-03-31)
 
 
