@@ -6,9 +6,9 @@ set -e
 set -o pipefail # Bashism
 
 # Kali's default values
-ZYPHOR_DIST="zyphor"
-ZYPHOR_VERSION=""
-ZYPHOR_VARIANT="default"
+KALI_DIST="kali-rolling"
+KALI_VERSION=""
+KALI_VARIANT="default"
 TARGET_DIR="$(dirname $0)/images"
 TARGET_SUBDIR=""
 SUDO="sudo"
@@ -19,12 +19,12 @@ HOST_ARCH=$(dpkg --print-architecture)
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 image_name() {
-  case "$ZYPHOR_ARCH" in
+  case "$KALI_ARCH" in
     i386|amd64|arm64)
-      echo "live-image-$ZYPHOR_ARCH.hybrid.iso"
+      echo "live-image-$KALI_ARCH.hybrid.iso"
     ;;
     armhf)
-      echo "live-image-$ZYPHOR_ARCH.img"
+      echo "live-image-$KALI_ARCH.img"
     ;;
   esac
 }
@@ -37,10 +37,10 @@ target_image_name() {
   if [ "$IMAGE_EXT" = "$IMAGE_NAME" ]; then
     IMAGE_EXT="img"
   fi
-  if [ "$ZYPHOR_VARIANT" = "default" ]; then
-    echo "${TARGET_SUBDIR:+$TARGET_SUBDIR/}kali-linux-$ZYPHOR_VERSION-live-$ZYPHOR_ARCH.$IMAGE_EXT"
+  if [ "$KALI_VARIANT" = "default" ]; then
+    echo "${TARGET_SUBDIR:+$TARGET_SUBDIR/}kali-linux-$KALI_VERSION-live-$KALI_ARCH.$IMAGE_EXT"
   else
-    echo "${TARGET_SUBDIR:+$TARGET_SUBDIR/}kali-linux-$ZYPHOR_VERSION-live-$ZYPHOR_VARIANT-$ZYPHOR_ARCH.$IMAGE_EXT"
+    echo "${TARGET_SUBDIR:+$TARGET_SUBDIR/}kali-linux-$KALI_VERSION-live-$KALI_VARIANT-$KALI_ARCH.$IMAGE_EXT"
   fi
 }
 
@@ -61,7 +61,7 @@ default_version() {
 }
 
 failure() {
-  echo "Build of $ZYPHOR_DIST/$ZYPHOR_VARIANT/$ZYPHOR_ARCH live image failed (see build.log for details)" >&2
+  echo "Build of $KALI_DIST/$KALI_VARIANT/$KALI_ARCH live image failed (see build.log for details)" >&2
   echo "Log: $BUILD_LOG" >&2
   exit 2
 }
@@ -139,14 +139,14 @@ temp=$(getopt -o "$BUILD_OPTS_SHORT" -l "$BUILD_OPTS_LONG" -- "$@")
 eval set -- "$temp"
 while true; do
   case "$1" in
-    -d|--distribution) ZYPHOR_DIST="$2"; shift 2; ;;
+    -d|--distribution) KALI_DIST="$2"; shift 2; ;;
     -p|--proposed-updates) OPT_pu="1"; shift 1; ;;
-    -a|--arch) ZYPHOR_ARCH="$2"; shift 2; ;;
+    -a|--arch) KALI_ARCH="$2"; shift 2; ;;
     -v|--verbose) VERBOSE="1"; shift 1; ;;
     -D|--debug) DEBUG="1"; shift 1; ;;
     -h|--help) print_help; ;;
-    --variant) ZYPHOR_VARIANT="$2"; shift 2; ;;
-    --version) ZYPHOR_VERSION="$2"; shift 2; ;;
+    --variant) KALI_VARIANT="$2"; shift 2; ;;
+    --version) KALI_VERSION="$2"; shift 2; ;;
     --subdir) TARGET_SUBDIR="$2"; shift 2; ;;
     --get-image-path) ACTION="get-image-path"; shift 1; ;;
     --clean) ACTION="clean"; shift 1; ;;
@@ -163,40 +163,40 @@ debug "BUILD_LOG: $BUILD_LOG"
 : > "$BUILD_LOG"
 
 # Set default values
-ZYPHOR_ARCH=${ZYPHOR_ARCH:-$HOST_ARCH}
-if [ "$ZYPHOR_ARCH" = "x64" ]; then
-  ZYPHOR_ARCH="amd64"
-elif [ "$ZYPHOR_ARCH" = "x86" ]; then
-  ZYPHOR_ARCH="i386"
+KALI_ARCH=${KALI_ARCH:-$HOST_ARCH}
+if [ "$KALI_ARCH" = "x64" ]; then
+  KALI_ARCH="amd64"
+elif [ "$KALI_ARCH" = "x86" ]; then
+  KALI_ARCH="i386"
 fi
-debug "ZYPHOR_ARCH: $ZYPHOR_ARCH"
+debug "KALI_ARCH: $KALI_ARCH"
 
-if [ -z "$ZYPHOR_VERSION" ]; then
-  ZYPHOR_VERSION="$(default_version $ZYPHOR_DIST)"
+if [ -z "$KALI_VERSION" ]; then
+  KALI_VERSION="$(default_version $KALI_DIST)"
 fi
-debug "ZYPHOR_VERSION: $ZYPHOR_VERSION"
+debug "KALI_VERSION: $KALI_VERSION"
 
 # Check parameters
 debug "HOST_ARCH: $HOST_ARCH"
-if [ "$HOST_ARCH" != "$ZYPHOR_ARCH" ]; then
-  case "$HOST_ARCH/$ZYPHOR_ARCH" in
+if [ "$HOST_ARCH" != "$KALI_ARCH" ]; then
+  case "$HOST_ARCH/$KALI_ARCH" in
     amd64/i386|i386/amd64)
     ;;
     *)
-      echo "Can't build $ZYPHOR_ARCH image on $HOST_ARCH system" >&2
+      echo "Can't build $KALI_ARCH image on $HOST_ARCH system" >&2
       exit 1
     ;;
   esac
 fi
 
 # Build parameters for lb config
-ZYPHOR_CONFIG_OPTS="--distribution $ZYPHOR_DIST -- --variant $ZYPHOR_VARIANT"
+KALI_CONFIG_OPTS="--distribution $KALI_DIST -- --variant $KALI_VARIANT"
 if [ -n "$OPT_pu" ]; then
-  ZYPHOR_CONFIG_OPTS="$ZYPHOR_CONFIG_OPTS --proposed-updates"
-  ZYPHOR_DIST="$ZYPHOR_DIST+pu"
+  KALI_CONFIG_OPTS="$KALI_CONFIG_OPTS --proposed-updates"
+  KALI_DIST="$KALI_DIST+pu"
 fi
-debug "ZYPHOR_CONFIG_OPTS: $ZYPHOR_CONFIG_OPTS"
-debug "ZYPHOR_DIST: $ZYPHOR_DIST"
+debug "KALI_CONFIG_OPTS: $KALI_CONFIG_OPTS"
+debug "KALI_DIST: $KALI_DIST"
 
 # Set sane PATH (cron seems to lack /sbin/ dirs)
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -210,8 +210,8 @@ else
   echo "ERROR: Non Debian-based OS" >&2
 fi
 
-if [ ! -d "$(dirname $0)/zyphor-config/variant-$ZYPHOR_VARIANT" ]; then
-  echo "ERROR: Unknown variant of Kali live configuration: $ZYPHOR_VARIANT" >&2
+if [ ! -d "$(dirname $0)/kali-config/variant-$KALI_VARIANT" ]; then
+  echo "ERROR: Unknown variant of Kali live configuration: $KALI_VARIANT" >&2
 fi
 require_package live-build "1:20250814+kali2"
 
@@ -226,12 +226,12 @@ else
 fi
 debug "SUDO: $SUDO"
 
-IMAGE_NAME="$(image_name $ZYPHOR_ARCH)"
+IMAGE_NAME="$(image_name $KALI_ARCH)"
 debug "IMAGE_NAME: $IMAGE_NAME"
 
 debug "ACTION: $ACTION"
 if [ "$ACTION" = "get-image-path" ]; then
-  echo $(target_image_name $ZYPHOR_ARCH)
+  echo $(target_image_name $KALI_ARCH)
   exit 0
 fi
 
@@ -250,7 +250,7 @@ mkdir -pv $TARGET_DIR/$TARGET_SUBDIR
 set +e
 
 debug "Stage 1/2 - Config" # ./auto/config
-run_and_log lb config -a $ZYPHOR_ARCH $ZYPHOR_CONFIG_OPTS "$@"
+run_and_log lb config -a $KALI_ARCH $KALI_CONFIG_OPTS "$@"
 [ $? -eq 0 ] || failure
 
 debug "Stage 2/2 - Build"
@@ -263,7 +263,7 @@ fi
 set -e
 
 debug "Moving files"
-run_and_log mv -f $IMAGE_NAME $TARGET_DIR/$(target_image_name $ZYPHOR_ARCH)
-run_and_log mv -f "$BUILD_LOG" $TARGET_DIR/$(target_build_log $ZYPHOR_ARCH)
+run_and_log mv -f $IMAGE_NAME $TARGET_DIR/$(target_image_name $KALI_ARCH)
+run_and_log mv -f "$BUILD_LOG" $TARGET_DIR/$(target_build_log $KALI_ARCH)
 
-echo -e "\n***\nGENERATED IMAGE: $(readlink -f $TARGET_DIR/$(target_image_name $ZYPHOR_ARCH))\n***"
+echo -e "\n***\nGENERATED IMAGE: $(readlink -f $TARGET_DIR/$(target_image_name $KALI_ARCH))\n***"
