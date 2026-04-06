@@ -1,3 +1,10 @@
+## [0.0.11](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.10...v0.0.11) (2026-04-06)
+
+
+### Bug Fixes
+
+* added hooks/normal folder and internal files to override system package defaults ([3ae4062](https://github.com/markjasonespelita/zyphor_os/commit/3ae4062bbd364b5b1032434e8ce406ce02c46b69))
+
 ## [0.0.10](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.9...v0.0.10) (2026-04-06)
 
 
