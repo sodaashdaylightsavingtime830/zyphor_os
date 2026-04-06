@@ -1,3 +1,10 @@
+## [0.0.9](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.8...v0.0.9) (2026-04-06)
+
+
+### Bug Fixes
+
+* removed the kali-config/variant-xfce/hooks/live/99-xfce-wallpaper.chroot file. ([5adbc57](https://github.com/markjasonespelita/zyphor_os/commit/5adbc579fe6df388108f252cd691dd4108ff3168))
+
 ## [0.0.8](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.7...v0.0.8) (2026-04-06)
 
 
