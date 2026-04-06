@@ -1,3 +1,10 @@
+## [0.0.13](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.12...v0.0.13) (2026-04-06)
+
+
+### Bug Fixes
+
+* modified the xfce4-desktop.xml, supports virtual machine desktop environment ([9011190](https://github.com/markjasonespelita/zyphor_os/commit/90111902985b9978aef2c4dbd628699870b3353a))
+
 ## [0.0.12](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.11...v0.0.12) (2026-04-06)
 
 
