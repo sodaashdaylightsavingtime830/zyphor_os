@@ -1,3 +1,10 @@
+## [0.0.8](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.7...v0.0.8) (2026-04-06)
+
+
+### Bug Fixes
+
+* added symbolic links on crucial folders. ([1e26132](https://github.com/markjasonespelita/zyphor_os/commit/1e26132fbe6e61cc5a805f27d1f895cc5c28fdd9))
+
 ## [0.0.7](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.6...v0.0.7) (2026-03-31)
 
 
