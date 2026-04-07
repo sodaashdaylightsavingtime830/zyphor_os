@@ -7,22 +7,22 @@
 
       <!-- Physical monitor -->
       <property name="monitor0" type="empty">
-        <property name="image-path" type="string" value="/usr/share/backgrounds/backgrounds.jpg" locked="true"/>
-        <property name="last-image" type="string" value="/usr/share/backgrounds/backgrounds.jpg"/>
+        <property name="image-path" type="string" value="/usr/share/backgrounds/backgrounds.png" locked="true"/>
+        <property name="last-image" type="string" value="/usr/share/backgrounds/backgrounds.png"/>
         <property name="image-style" type="int" value="3"/>
       </property>
 
       <!-- Virtual machine monitor (QEMU/VirtualBox/VMware) -->
       <property name="monitorVirtual1" type="empty">
-        <property name="image-path" type="string" value="/usr/share/backgrounds/backgrounds.jpg" locked="true"/>
-        <property name="last-image" type="string" value="/usr/share/backgrounds/backgrounds.jpg"/>
+        <property name="image-path" type="string" value="/usr/share/backgrounds/backgrounds.png" locked="true"/>
+        <property name="last-image" type="string" value="/usr/share/backgrounds/backgrounds.png"/>
         <property name="image-style" type="int" value="3"/>
       </property>
 
       <!-- Fallback monitor -->
       <property name="monitor1" type="empty">
-        <property name="image-path" type="string" value="/usr/share/backgrounds/backgrounds.jpg"/>
-        <property name="last-image" type="string" value="/usr/share/backgrounds/backgrounds.jpg"/>
+        <property name="image-path" type="string" value="/usr/share/backgrounds/backgrounds.png"/>
+        <property name="last-image" type="string" value="/usr/share/backgrounds/backgrounds.png"/>
         <property name="image-style" type="int" value="3"/>
       </property>
 
