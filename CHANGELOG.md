@@ -1,3 +1,10 @@
+## [0.0.20](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.19...v0.0.20) (2026-04-08)
+
+
+### Bug Fixes
+
+* replace xfce with xfce4 in the /etc/skel/.config folder, and also added other configuration based on the host. ([92790d8](https://github.com/markjasonespelita/zyphor_os/commit/92790d854617b572de90eb732e9fd107349fd5f8))
+
 ## [0.0.19](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.18...v0.0.19) (2026-04-08)
 
 
