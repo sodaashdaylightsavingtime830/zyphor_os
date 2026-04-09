@@ -1,3 +1,10 @@
+## [0.0.22](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.21...v0.0.22) (2026-04-09)
+
+
+### Bug Fixes
+
+* fixed plymouth zyphor.script for plymouth display during boot and reboot, also added a zyphor folder and place the official background images inside that folder, and modified the xfce desktop xml file to display the wallpapers correctly. ([0fb60fc](https://github.com/markjasonespelita/zyphor_os/commit/0fb60fc25bb00e04b740bf3bc0c3d8529f9addbe))
+
 ## [0.0.21](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.20...v0.0.21) (2026-04-09)
 
 
