@@ -1,3 +1,11 @@
+## [0.0.24](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.23...v0.0.24) (2026-04-09)
+
+
+### Bug Fixes
+
+* added a post install command configuration by setting up the crucial files and folders based on the zyphor configuration default settings. ([f260a06](https://github.com/markjasonespelita/zyphor_os/commit/f260a06bc5e590f006d1228d5beefd33a2bd4f1d))
+* set-up all monitors to use the same Zyphor background by default. ([5b11bba](https://github.com/markjasonespelita/zyphor_os/commit/5b11bba933566b73c68e3ca6050e795618abec90))
+
 ## [0.0.23](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.22...v0.0.23) (2026-04-09)
 
 
