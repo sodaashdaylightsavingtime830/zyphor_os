@@ -14,29 +14,32 @@
 # Zyphor OS Custom Post Install Configurations (1)
 
 configure_zyphor() {
+
+    set -e
+
     echo "INFO: Applying Zyphor OS customizations"
 
     # For lightdm gtk greeter - create /desktop-base folder inside /usr/share/images/[desktop-base]
 
-    mkdir /usr/share/images/desktop-base
+    mkdir -p /usr/share/images/desktop-base
 
     # create symlinks of the wallpapers and default desktop wallpapers
 
-    ln -s /usr/share/backgrounds/backgrounds.png /usr/share/images/desktop-base/default
+    ln -sf /usr/share/backgrounds/backgrounds.png /usr/share/images/desktop-base/default
 
-    ln -s /usr/share/backgrounds/backgrounds2.png /usr/share/images/desktop-base/default-2
+    ln -sf /usr/share/backgrounds/backgrounds2.png /usr/share/images/desktop-base/default-2
 
-    ln -s /usr/share/backgrounds/backgrounds3.png /usr/share/images/desktop-base/default-3
+    ln -sf /usr/share/backgrounds/backgrounds3.png /usr/share/images/desktop-base/default-3
 
-    ln -s /usr/share/backgrounds/backgrounds4.png /usr/share/images/desktop-base/default-4
+    ln -sf /usr/share/backgrounds/backgrounds4.png /usr/share/images/desktop-base/default-4
 
     # lightdm .face symlink
 
-    ln -s /etc/skel/.face /etc/skel/.face.icon
+    ln -sf /etc/skel/.face /etc/skel/.face.icon
 
     # For GRUB Bootloader - create a folder /boot/zyphor
 
-    mkdir /boot/zyphor
+    mkdir -p /boot/zyphor
 
     # copy main GRUB Bootloader splash screen
 
