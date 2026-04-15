@@ -1,3 +1,11 @@
+## [0.0.38](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.37...v0.0.38) (2026-04-15)
+
+
+### Bug Fixes
+
+* added download link to the iso file on the readme.md ([f7ed9c6](https://github.com/markjasonespelita/zyphor_os/commit/f7ed9c60202a1de90b29cf77c7a421636eac4f02))
+* uploaded an alpha test build - preperation for beta release. ([8aab4fa](https://github.com/markjasonespelita/zyphor_os/commit/8aab4fa5fd50342313b5ec805b895a2cbc71a0cb))
+
 ## [0.0.37](https://github.com/markjasonespelita/zyphor_os/compare/v0.0.36...v0.0.37) (2026-04-15)
 
 
