@@ -3,7 +3,7 @@
 
   "logo": {
     "type": "file",
-    "source": "./zyphor.txt",
+    "source": "/etc/fastfetch/zyphor.txt",
     "padding": {
       "top": 1,
       "left": 2
