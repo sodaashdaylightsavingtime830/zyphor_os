@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/markjasonespelita/zyphor_os/compare/v1.2.0...v1.3.0) (2026-04-21)
+
+
+### Features
+
+* added jq and curl on the package list as a default - pre installed application. ([4aff319](https://github.com/markjasonespelita/zyphor_os/commit/4aff31918312178bc2dcf863756dedabe3a477f3))
+
 # [1.2.0](https://github.com/markjasonespelita/zyphor_os/compare/v1.1.0...v1.2.0) (2026-04-20)
 
 
